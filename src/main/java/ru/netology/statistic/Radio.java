@@ -85,23 +85,25 @@ public class Radio {
     public int setToMinStation() {
         currentStation = minStation;
         return currentStation;
+
     }
 
-
-    public void pressNextStation() {
+    public int pressNextStation() {
         if (currentStation >= maxStation) {
             setCurrentStation(minStation);
         } else {
             setCurrentStation(currentStation + 1);
         }
+        return minStation;
     }
 
-    public void pressPrevStation() {
+    public int pressPrevStation() {
         if (currentStation <= minStation) {
             setCurrentStation(maxStation);
         } else {
             setCurrentStation(currentStation - 1);
         }
+        return maxStation;
     }
 
 
