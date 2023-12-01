@@ -1,5 +1,3 @@
-package ru.netology.statistic;
-
 public class Radio {
     private int currentVolume;
     private int maxVolume = 100;
@@ -105,10 +103,4 @@ public class Radio {
         }
         return maxStation;
     }
-
-
 }
-
-
-
-

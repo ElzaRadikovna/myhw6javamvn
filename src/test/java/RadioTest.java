@@ -1,5 +1,3 @@
-package ru.netology.statistic;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -189,7 +187,6 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
     @Test
     public void testOverLastStation() {
         radio.setCurrentStation(11);
@@ -214,5 +211,4 @@ public class RadioTest {
 
 
 }
-
 
