@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-    Radio radio = new Radio();
+    Radio radio = new Radio(100, 0, 0, 9, 0, 0);
 
     // Тесты звука
     @Test
@@ -20,10 +20,10 @@ public class RadioTest {
     @Test
     public void shouldSetToMaxVolume() {
 
-        radio.setToMaxVolume();
+        radio.getMaxVolume();
 
         int expected = 100;
-        int actual = radio.setToMaxVolume();
+        int actual = radio.getMaxVolume();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -31,10 +31,10 @@ public class RadioTest {
     @Test
     public void shouldSetToMinVolume() {
 
-        radio.setToMinVolume();
+        radio.getMinVolume();
 
         int expected = 0;
-        int actual = radio.setToMinVolume();
+        int actual = radio.getMinVolume();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -109,10 +109,20 @@ public class RadioTest {
 
 
     // Тесты радиостанции
+    @Test
+    public void TestStationsCount() {
+        Radio radio = new Radio(10);
+        radio.setCurrentStation(6);
+
+        int expected = 6;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void ShouldSetStation() {
-
+        Radio radio = new Radio();
         radio.setCurrentStation(5);
 
         int expected = 5;
@@ -187,6 +197,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void testOverLastStation() {
         radio.setCurrentStation(11);
