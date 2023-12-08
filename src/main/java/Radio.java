@@ -1,114 +1,77 @@
 public class Radio {
-    private int maxVolume = 100;
-    private int minVolume = 0;
-    private int currentVolume = minVolume;
-    private int maxStation = 9;
-    private int minStation = 0;
-    private int currentStation = minStation;
+    private int currentVolume;
+    private int currentStation;
 
-    public Radio(int maxVolume, int minVolume, int currentVolume, int maxStation, int minStation, int currentStation) {
-        this.maxVolume = maxVolume;
-        this.minVolume = minVolume;
-        this.currentVolume = minVolume;
-        this.maxStation = maxStation;
-        this.minStation = minStation;
-        this.currentStation = minStation;
-    }
-
-    public Radio () {
-
-    }
-    public Radio (int stationsCount) {
-        stationsCount = 10;
-    }
 
     public int getCurrentVolume() {
         return currentVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
     }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-
-    public int getMinStation() {
-        return minStation;
-    }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < minVolume) {
+        if (newCurrentVolume < 0) {
             return;
         }
-        if (newCurrentVolume > maxVolume) {
+        if (newCurrentVolume > 100) {
             return;
         }
-        currentVolume = newCurrentVolume;
+       currentVolume = newCurrentVolume;
     }
 
-    public void setToMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
+    public void setToMaxVolume() {
+        currentVolume = 100;
     }
 
     public void setToMinVolume() {
-        this.minVolume = minVolume;
+        currentVolume = 0;
 
     }
 
     public void increaseVolume() {
-        if (currentVolume < maxVolume) {
-            setCurrentVolume(currentVolume++);
+        if (currentVolume < 100) {
+            setCurrentVolume(currentVolume + 1);
         }
     }
 
     public void volumeDown() {
-        if (currentVolume > minVolume) {
+        if (currentVolume > 0) {
             setCurrentVolume(currentVolume - 1);
         }
     }
 
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation > maxStation) {
+        if (newCurrentStation< 0) {
             return;
         }
-        if (newCurrentStation < minStation) {
+        if (newCurrentStation > 9) {
             return;
         }
-        currentStation = newCurrentStation;
+         currentStation = newCurrentStation;
+
     }
 
     public void setToMaxStation() {
-        this.maxStation = maxStation;
+        currentStation = 9;
     }
 
     public void setToMinStation() {
-        this.minStation = minStation;
+        currentStation = 0;
     }
 
-    public int pressNextStation() {
-        if (currentStation >= maxStation) {
-            setCurrentStation(minStation);
-        } else {
-            setCurrentStation(currentStation++);
-        }
-        return minStation;
+    public void pressNextStation() {
+        if (currentStation != 9) {
+            setCurrentStation(currentStation + 1);
+        } else currentStation = 0;
     }
 
-    public int pressPrevStation() {
-        if (currentStation <= minStation) {
-            setCurrentStation(maxStation);
-        } else setCurrentStation(currentStation - 1);
-        return maxStation;
+    public void pressPrevStation() {
+        if (currentStation != 0) {
+            setCurrentStation(currentStation - 1);
+        } else
+            currentStation = 9;
     }
 }
