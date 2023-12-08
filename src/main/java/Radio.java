@@ -68,13 +68,16 @@ public class Radio {
     public void pressNextStation() {
         if (currentStation != 9) {
             setCurrentStation(currentStation + 1);
-        } else currentStation = 0;
+        } else {
+            currentStation = 0;
+        }
     }
 
     public void pressPrevStation() {
         if (currentStation != 0) {
             setCurrentStation(currentStation - 1);
-        } else
+        } else {
             currentStation = 9;
+        }
     }
 }
