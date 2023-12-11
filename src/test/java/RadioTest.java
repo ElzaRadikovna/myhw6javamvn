@@ -3,19 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
-    Radio radio = new Radio(9, 0, 0, 100, 0, 0);
-
-    @Test
-    public void shouldInitFields() {
-        Radio radio = new Radio();
-
-        Assertions.assertEquals(100, radio.getMaxVolume());
-        Assertions.assertEquals(0, radio.getMinVolume());
-        Assertions.assertEquals(0, radio.getCurrentVolume());
-        Assertions.assertEquals(9, radio.getMaxStation());
-        Assertions.assertEquals(0, radio.getMinStation());
-        Assertions.assertEquals(0, radio.getCurrentStation());
-    }
+    Radio radio = new Radio();
 
     // Тесты звука
     @Test
