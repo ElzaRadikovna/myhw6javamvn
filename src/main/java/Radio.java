@@ -21,7 +21,7 @@ public class Radio {
     }
 
     public Radio() {
-
+        maxStation = 9;
     }
 
     public Radio(int stationsCount) {

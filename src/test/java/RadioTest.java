@@ -124,7 +124,7 @@ public class RadioTest {
     // Тесты радиостанции
 
     @Test
-    public void testStation() {
+    public void testParametersStation() {
         Radio radio = new Radio(20);
         radio.setCurrentStation(15);
 
@@ -133,6 +133,16 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+@Test
+public void testStation () {
+        Radio radio = new Radio();
+        radio.setCurrentStation(2);
+
+        int expected = 2;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+}
 
     @Test
     public void ShouldSetStation() {
